@@ -4,10 +4,13 @@ import logging
 # This function will attempt to open a file and process it.
 # What could go wrong?
 def reckless_file_reader(file_path: str) -> None:
-    file = open(file_path)
-    for line in file:
-        print(f"{line}", end="")
-    file.close()
+    with open(file_path) as file:
+        for item in file:
+            print(f"{item}", end='')
+        file.close()
+
+
+
 
 
 # When an unhandled exception occurs, the application will be terminated.
